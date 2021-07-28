@@ -117,6 +117,24 @@
 		]
 	},
 	{
+		"project": "github.com/eapache/channels",
+		"licenses": [
+			{
+				"type": "MIT License",
+				"confidence": 1
+			}
+		]
+	},
+	{
+		"project": "github.com/eapache/queue",
+		"licenses": [
+			{
+				"type": "MIT License",
+				"confidence": 1
+			}
+		]
+	},
+	{
 		"project": "github.com/etcd-io/gofail/runtime",
 		"licenses": [
 			{
