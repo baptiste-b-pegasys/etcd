@@ -29,6 +29,7 @@ import (
 	"testing"
 	"time"
 
+	"github.com/eapache/channels"
 	"github.com/stretchr/testify/assert"
 	pb "go.etcd.io/etcd/api/v3/etcdserverpb"
 	"go.etcd.io/etcd/api/v3/membershippb"
@@ -1873,6 +1874,8 @@ func (n *nodeRecorder) ReportSnapshot(id uint64, status raft.SnapshotStatus) {}
 func (n *nodeRecorder) Compact(index uint64, nodes []uint64, d []byte) {
 	n.Record(testutil.Action{Name: "Compact"})
 }
+
+func (n *nodeRecorder) RoleChan() *channels.RingChannel { return &channels.RingChannel{} }
 
 type nodeProposalBlockerRecorder struct {
 	nodeRecorder

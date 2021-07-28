@@ -22,6 +22,7 @@ import (
 	"reflect"
 	"testing"
 
+	"github.com/eapache/channels"
 	"go.etcd.io/etcd/raft/v3/quorum"
 	pb "go.etcd.io/etcd/raft/v3/raftpb"
 	"go.etcd.io/etcd/raft/v3/tracker"
@@ -69,6 +70,8 @@ func (a *rawNodeAdapter) Propose(_ context.Context, data []byte) error {
 func (a *rawNodeAdapter) ProposeConfChange(_ context.Context, cc pb.ConfChangeI) error {
 	return a.RawNode.ProposeConfChange(cc)
 }
+
+func (n *rawNodeAdapter) RoleChan() *channels.RingChannel { return &channels.RingChannel{} }
 
 // TestRawNodeStep ensures that RawNode.Step ignore local message.
 func TestRawNodeStep(t *testing.T) {
