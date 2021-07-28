@@ -20,4 +20,3 @@ replace go.etcd.io/etcd => ./FORBIDDEN_DEPENDENCY
 replace go.etcd.io/etcd/v3 => ./FORBIDDEN_DEPENDENCY
 
 replace go.etcd.io/etcd/client/pkg/v3 => ../client/pkg
-

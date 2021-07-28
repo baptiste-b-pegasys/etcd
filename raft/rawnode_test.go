@@ -71,7 +71,7 @@ func (a *rawNodeAdapter) ProposeConfChange(_ context.Context, cc pb.ConfChangeI)
 	return a.RawNode.ProposeConfChange(cc)
 }
 
-func (n *rawNodeAdapter) RoleChan() *channels.RingChannel { return &channels.RingChannel{} }
+func (a *rawNodeAdapter) RoleChan() *channels.RingChannel { return &channels.RingChannel{} }
 
 // TestRawNodeStep ensures that RawNode.Step ignore local message.
 func TestRawNodeStep(t *testing.T) {
