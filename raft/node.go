@@ -301,6 +301,7 @@ func (n *node) Stop() {
 	select {
 	case n.stop <- struct{}{}:
 		// Not already stopped, so trigger it
+		n.rolec.Close()
 	case <-n.done:
 		// Node has already been stopped - no need to do anything
 		return
@@ -309,9 +310,7 @@ func (n *node) Stop() {
 	<-n.done
 }
 
-func (n *node) RoleChan() *channels.RingChannel {
-	return n.rolec
-}
+func (n *node) RoleChan() *channels.RingChannel { return n.rolec }
 
 func (n *node) run() {
 	var propc chan msgWithResult
