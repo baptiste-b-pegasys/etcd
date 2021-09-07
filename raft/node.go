@@ -224,9 +224,9 @@ type Peer struct {
 //
 // Peers must not be zero length; call RestartNode in that case.
 func StartNode(c *Config, peers []Peer) Node {
-	if len(peers) == 0 {
-		panic("no peers given; use RestartNode instead")
-	}
+	//if len(peers) == 0 {
+	//	panic("no peers given; use RestartNode instead")
+	//}
 	rn, err := NewRawNode(c)
 	if err != nil {
 		panic(err)
